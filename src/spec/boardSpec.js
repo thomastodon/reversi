@@ -3,12 +3,14 @@ import Vue from 'vue';
 
 describe('board', () => {
 
-  let vm;
+  let vm, commandSpy;
 
   Vue.config.devtools = false;
   Vue.config.productionTip = false;
 
   beforeEach(() => {
+
+    commandSpy = jasmine.createSpyObj('command', ['getSomething']);
 
     const spec = document.createElement('div');
     spec.id = 'spec';
@@ -18,11 +20,17 @@ describe('board', () => {
       el: '#spec',
       render: (h) => h(App)
     });
-
   });
 
   it('has a title', () => {
     expect(page()).toContain('reversi')
+  });
+
+  describe('when the button is clicked', () => {
+
+    beforeEach(() => {
+      page().querySelector('button').click()
+    });
   });
 
   afterEach(() => {

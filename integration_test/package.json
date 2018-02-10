@@ -1,0 +1,16 @@
+{
+  "name": "integration_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine JASMINE_CONFIG_PATH=jasmine.json"
+  },
+  "author": "thomas shouler",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "^4.16.2",
+    "jasmine": "^3.0.0",
+    "puppeteer": "^1.0.0"
+  }
+}
