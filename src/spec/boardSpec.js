@@ -3,18 +3,18 @@ import Vue from 'vue';
 
 describe('board', () => {
 
-  let vm, commandSpy;
+  let vm;
 
   Vue.config.devtools = false;
   Vue.config.productionTip = false;
 
   beforeEach(() => {
 
-    commandSpy = jasmine.createSpyObj('command', ['getSomething']);
-
     const spec = document.createElement('div');
     spec.id = 'spec';
     document.querySelector('body').appendChild(spec);
+
+    spyOn(App.components.Board.methods, "getSomething");
 
     vm = new Vue({
       el: '#spec',
@@ -29,8 +29,12 @@ describe('board', () => {
   describe('when the button is clicked', () => {
 
     beforeEach(() => {
-      page().querySelector('button').click()
+      document.querySelector('button').click()
     });
+
+    it('makes a call to google', () => {
+      expect(App.components.Board.methods.getSomething).toHaveBeenCalled();
+    })
   });
 
   afterEach(() => {
