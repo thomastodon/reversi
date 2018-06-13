@@ -7,7 +7,6 @@
 
   export default {
     name: 'app',
-
     components: {
       Board
     },

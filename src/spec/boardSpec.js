@@ -3,7 +3,7 @@ import Vue from 'vue';
 
 describe('board', () => {
 
-  let vm;
+  let vm, googleCommandSpy;
 
   Vue.config.devtools = false;
   Vue.config.productionTip = false;
@@ -14,10 +14,11 @@ describe('board', () => {
     spec.id = 'spec';
     document.querySelector('body').appendChild(spec);
 
-    spyOn(App.components.Board.methods, "getSomething");
+    googleCommandSpy = jasmine.createSpyObj('googleCommand', {getFountainhead: new Promise(() => 'hello')});
 
     vm = new Vue({
       el: '#spec',
+      provide: {googleCommand: googleCommandSpy},
       render: (h) => h(App)
     });
   });
@@ -33,7 +34,7 @@ describe('board', () => {
     });
 
     it('makes a call to google', () => {
-      expect(App.components.Board.methods.getSomething).toHaveBeenCalled();
+      expect(googleCommandSpy.getFountainhead).toHaveBeenCalled();
     })
   });
 

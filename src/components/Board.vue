@@ -7,8 +7,6 @@
 </template>
 
 <script>
-  import axios from 'axios'
-
   export default {
     name: 'Board',
     data: function () {
@@ -16,13 +14,11 @@
         content: ''
       }
     },
+    inject: ['googleCommand'],
     methods: {
       getSomething: function () {
-
-        axios
-          .get('https://www.googleapis.com/books/v1/volumes?q=inauthor:ayn+intitle:fountainhead')
-          .then(response => this.content = response.data.items[0].volumeInfo.description)
-          .catch(error => console.log(error));
+        this.googleCommand.getFountainhead()
+          .then(content => this.content = content);
       }
     }
   }
