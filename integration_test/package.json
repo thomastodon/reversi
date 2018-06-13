@@ -11,6 +11,7 @@
   "devDependencies": {
     "express": "^4.16.2",
     "jasmine": "^3.0.0",
+    "jasmine-spec-reporter": "^4.2.1",
     "puppeteer": "^1.0.0"
   }
 }

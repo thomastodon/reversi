@@ -3,5 +3,8 @@
   "spec_files": [
     "**/*Spec.js",
     "*Spec.js"
+  ],
+  "helpers": [
+    "helpers/*.js"
   ]
 }
