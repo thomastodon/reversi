@@ -30,6 +30,10 @@ describe('app', () => {
       expect(await page.content()).toContain('reversi');
     });
 
+    it('shows the game board', async () => {
+      expect(await page.$('#table')).toBeTruthy();
+    });
+
     describe('when the user clicks the button', () => {
 
       beforeEach(async () => {
