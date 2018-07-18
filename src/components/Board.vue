@@ -15,16 +15,17 @@
 </script>
 
 <style lang="scss">
+  @import '../main';
+
   table {
     border-collapse: collapse;
-    background-color: #1b8754;
+    background-color: $felt-green;
     height: 400px;
     width: 400px;
   }
 
   tr th {
     border: 3px solid white;
-    color: black;
   }
 
 </style>

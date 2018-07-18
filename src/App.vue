@@ -21,7 +21,9 @@
 </script>
 
 <style lang="scss">
+  @import 'main';
+
   body {
-    background-color: #aaaaaa;
+    background-color: $dark-gray;
   }
 </style>
