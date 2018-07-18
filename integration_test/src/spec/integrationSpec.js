@@ -30,8 +30,8 @@ describe('app', () => {
       expect(await page.content()).toContain('reversi');
     });
 
-    it('shows a review of ayn rand\'s fountainhead', async () => {
-      expect(await page.$('#fountainhead')).toBeTruthy();
+    it('renders a button', async () => {
+      expect(await page.$('#button')).toBeTruthy();
     });
 
     describe('when the user clicks the button', () => {
