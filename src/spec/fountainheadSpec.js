@@ -23,10 +23,6 @@ describe('the fountainhead', () => {
     });
   });
 
-  it('has a title', () => {
-    expect(page()).toContain('reversi')
-  });
-
   describe('when the button is clicked', () => {
 
     beforeEach(() => {

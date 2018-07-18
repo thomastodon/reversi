@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h2 id="title">reversi</h2>
     <button id="button" v-on:click="getSomething">read</button>
     <div>{{content}}</div>
   </div>

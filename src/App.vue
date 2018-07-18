@@ -1,6 +1,8 @@
 <template>
   <div>
+    <h2 id="title">reversi</h2>
     <board id="board"></board>
+    <br>
     <fountainhead id="fountainhead"></fountainhead>
   </div>
 </template>
