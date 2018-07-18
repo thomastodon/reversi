@@ -34,6 +34,10 @@ describe('app', () => {
       expect(await page.$('#button')).toBeTruthy();
     });
 
+    it('renders the board', async () => {
+      expect(await page.$('#board')).toBeTruthy();
+    });
+
     describe('when the user clicks the button', () => {
 
       beforeEach(async () => {
