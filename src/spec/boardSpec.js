@@ -1,26 +1,11 @@
-import App from '../App.vue';
-import Vue from 'vue';
+import Utility from "./utility";
 
 describe('the board', () => {
 
-  let vm, googleCommandSpy;
-
-  Vue.config.devtools = false;
-  Vue.config.productionTip = false;
+  let vm;
 
   beforeEach(() => {
-
-    const spec = document.createElement('div');
-    spec.id = 'spec';
-    document.querySelector('body').appendChild(spec);
-
-    googleCommandSpy = jasmine.createSpyObj('googleCommand', {getFountainhead: new Promise(() => 'hello')});
-
-    vm = new Vue({
-      el: '#spec',
-      provide: {googleCommand: googleCommandSpy},
-      render: (h) => h(App)
-    });
+    vm = Utility.setup({googleCommand: undefined});
   });
 
   it('has eight rows', () => {
@@ -31,8 +16,5 @@ describe('the board', () => {
     expect(document.querySelectorAll('tr')[0].querySelectorAll('th').length).toBe(8);
   });
 
-  afterEach(() => {
-    vm.$destroy();
-    vm.$el.remove();
-  });
+  afterEach(() => Utility.tearDown(vm));
 });

@@ -1,26 +1,12 @@
-import App from '../App.vue';
-import Vue from 'vue';
+import Utility from './utility';
 
 describe('the fountainhead', () => {
 
   let vm, googleCommandSpy;
 
-  Vue.config.devtools = false;
-  Vue.config.productionTip = false;
-
   beforeEach(() => {
-
-    const spec = document.createElement('div');
-    spec.id = 'spec';
-    document.querySelector('body').appendChild(spec);
-
     googleCommandSpy = jasmine.createSpyObj('googleCommand', {getFountainhead: new Promise(() => 'hello')});
-
-    vm = new Vue({
-      el: '#spec',
-      provide: {googleCommand: googleCommandSpy},
-      render: (h) => h(App)
-    });
+    vm = Utility.setup({googleCommand: googleCommandSpy});
   });
 
   describe('when the button is clicked', () => {
@@ -34,10 +20,5 @@ describe('the fountainhead', () => {
     })
   });
 
-  afterEach(() => {
-    vm.$destroy();
-    vm.$el.remove();
-  });
-
-  const page = () => document.querySelector('body').innerText
+  afterEach(() => Utility.tearDown(vm));
 });
