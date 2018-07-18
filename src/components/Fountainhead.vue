@@ -8,7 +8,7 @@
 
 <script>
   export default {
-    name: 'Board',
+    name: 'Fountainhead',
     data: function () {
       return {
         content: ''

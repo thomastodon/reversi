@@ -1,7 +1,7 @@
 import App from '../App.vue';
 import Vue from 'vue';
 
-describe('board', () => {
+describe('the fountainhead', () => {
 
   let vm, googleCommandSpy;
 

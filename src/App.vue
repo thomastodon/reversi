@@ -1,14 +1,14 @@
 <template>
-  <board id="table"></board>
+  <fountainhead id="fountainhead"></fountainhead>
 </template>
 
 <script>
-  import Board from './components/Board.vue';
+  import Fountainhead from './components/Fountainhead.vue';
 
   export default {
     name: 'app',
     components: {
-      Board
+      Fountainhead
     },
   }
 </script>
