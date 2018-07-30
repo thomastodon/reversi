@@ -1,11 +1,13 @@
-import Utility from './utility';
+import {setup, tearDown} from './utility';
+import Board from '../components/Board'
 
 describe('the board', () => {
 
-  let vm;
+  let vm, googleCommandSpy;
 
   beforeEach(() => {
-    vm = Utility.setup({googleCommand: undefined});
+    googleCommandSpy = jasmine.createSpyObj('googleCommand', {getFountainhead: new Promise(() => 'hello')});
+    vm = setup(Board, {googleCommand: googleCommandSpy});
   });
 
   it('has eight rows', () => {
@@ -16,5 +18,16 @@ describe('the board', () => {
     expect(document.querySelectorAll('tr')[0].querySelectorAll('th').length).toBe(8);
   });
 
-  afterEach(() => Utility.tearDown(vm));
+  describe('when the fountainhead button is clicked', () => {
+
+    beforeEach(() => {
+      document.querySelector('#button').click()
+    });
+
+    it('makes a call to google', () => {
+      expect(googleCommandSpy.getFountainhead).toHaveBeenCalled();
+    })
+  });
+
+  afterEach(() => tearDown(vm));
 });

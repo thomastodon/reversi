@@ -35,10 +35,10 @@ describe('app', () => {
     });
 
     it('renders the board', async () => {
-      expect(await page.$('#board')).toBeTruthy();
+      expect(await page.$('.board')).toBeTruthy();
     });
 
-    describe('when the user clicks the button', () => {
+    describe('when the user clicks the fountainhead button', () => {
 
       beforeEach(async () => {
         await page.click('#button');
@@ -47,6 +47,19 @@ describe('app', () => {
 
       it('learns about the fountainhead', async () => {
         expect(await page.content()).toContain('Dominique Francon');
+      });
+    });
+
+    describe('when the user clicks the end game button', () => {
+
+      beforeEach(async () => {
+        await page.click('#end-game');
+        await page.waitFor(100);
+      });
+
+      it('routes to a new view', async () => {
+        const url = await page.evaluate('location.href');
+        expect(url.split("/").pop()).toBe('game_over');
       });
     });
 
