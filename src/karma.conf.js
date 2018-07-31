@@ -33,7 +33,7 @@ module.exports = function (config) {
     webpack: webpackConfig,
 
     webpackMiddleware: {
-      noInfo: true
+      stats: 'none'
     },
 
     // test results reporter to use

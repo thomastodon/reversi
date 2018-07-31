@@ -5,6 +5,16 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   entry: './src/main.js',
+  stats: {
+    all: false,
+    assets: true,
+    colors: true,
+    errors: true,
+    errorDetails: true,
+    moduleTrace: true,
+    performance: true,
+    warnings: true,
+  },
   plugins: [
     new HtmlWebpackPlugin({template: 'index.html', title: 'Production'}),
     new VueLoaderPlugin(),

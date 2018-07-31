@@ -9,7 +9,7 @@
     "dev": "webpack-dev-server --open --hot --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "test": "npm run test:unit && npm run test:integration",
-    "test:unit": "karma start src/karma.conf.js --log-level=error",
+    "test:unit": "karma start src/karma.conf.js",
     "test:integration": "npm run build && npm test --prefix integration_test"
   },
   "dependencies": {
