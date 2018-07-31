@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   entry: './src/main.js',
@@ -8,9 +9,10 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     filename: 'build.js'
   },
-  plugins: [new HtmlWebpackPlugin({
-    template: 'index.html'
-  })],
+  plugins: [
+    new HtmlWebpackPlugin({template: 'index.html'}),
+    new VueLoaderPlugin()
+  ],
   module: {
     rules: [
       {
@@ -66,12 +68,6 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
       }
     }),
     new webpack.LoaderOptionsPlugin({

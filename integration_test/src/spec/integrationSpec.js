@@ -54,7 +54,7 @@ describe('app', () => {
 
       beforeEach(async () => {
         await page.click('#end-game');
-        await page.waitFor(100);
+        await page.waitFor(500);
       });
 
       it('routes to a new view', async () => {
