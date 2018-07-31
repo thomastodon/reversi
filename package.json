@@ -6,8 +6,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "dev": "webpack-dev-server --open --hot --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
     "test": "npm run test:unit && npm run test:integration",
     "test:unit": "karma start src/karma.conf.js --log-level=error",
     "test:integration": "npm run build && npm test --prefix integration_test"
@@ -27,6 +27,7 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-3": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.11",
@@ -43,6 +44,7 @@
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.16.3",
     "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
+    "webpack-dev-server": "^3.1.5",
+    "webpack-merge": "^4.1.3"
   }
 }
