@@ -1,0 +1,4 @@
+dependencies {
+    compile "org.springframework.integration:spring-integration-core:$spring_integration_version"
+    compile "org.springframework.integration:spring-integration-amqp:$spring_integration_version"
+}
