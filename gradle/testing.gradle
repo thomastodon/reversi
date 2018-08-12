@@ -11,26 +11,9 @@ dependencies {
     testRuntime "org.junit.platform:junit-platform-console-standalone:$junit_platform_version"
 }
 
-task unitTest(type: JavaExec) {
+task test(type: JavaExec, overwrite: true) {
 
     classpath = project.sourceSets.test.runtimeClasspath
     main "org.junit.platform.console.ConsoleLauncher"
-    args "-t", "unit"
-    args "-T", "integration"
     args "--scan-class-path"
 }
-
-task integrationTest(type: JavaExec) {
-
-    classpath = project.sourceSets.test.runtimeClasspath
-    main "org.junit.platform.console.ConsoleLauncher"
-    args "-t", "integration"
-    args "-T", "unit"
-    args "--scan-class-path"
-
-    shouldRunAfter unitTest
-}
-
-junitPlatformTest.enabled = false
-test.dependsOn unitTest
-test.dependsOn integrationTest

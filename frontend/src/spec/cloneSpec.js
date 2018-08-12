@@ -1,6 +1,6 @@
 import {deepClone} from './deepClone'
 
-fdescribe('javascript', () => {
+describe('javascript', () => {
 
   let house;
 

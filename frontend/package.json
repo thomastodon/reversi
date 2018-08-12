@@ -6,6 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "install:integration_test": "npm install --prefix integration_test",
     "dev": "webpack-dev-server --open --hot --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "test": "npm run test:unit && npm run test:integration",

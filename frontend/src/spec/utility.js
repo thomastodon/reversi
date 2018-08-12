@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import router from './../router'
+import store from './../store';
 
 Vue.config.devtools = false;
 Vue.config.productionTip = false;
@@ -12,6 +13,7 @@ export const setup = (component, commands) => {
 
   return new Vue({
     el: '#spec',
+    store: store,
     router: router,
     provide: commands,
     render: h => h(component)
